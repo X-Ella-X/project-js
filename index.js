@@ -6,8 +6,39 @@ import Spieler from "./classes/spieler.js";
 import Jocker from "./classes/jocker.js";
 import fragenDB from "./data/fragenDB.js";
 
+import enquirer from "enquirer";
+
+// const getUser = () => {
+//   const prompt = enquirer.form({
+//     name: "user",
+//     message: "Please provide the following information:",
+//     choices: [
+//       { name: "firstname", message: "First Name", initial: "Jon" },
+//       { name: "lastname", message: "Last Name", initial: "Schlinkert" },
+//       {
+//         name: "username",
+//         message: "GitHub username",
+//         initial: "jonschlinkert",
+//       },
+//     ],
+//   });
+
+//   return prompt;
+// };
+
+// getUser().then((x) => console.log(x.firstname !== "dima" ? getUser() : "dima"));
+
+// const response = await enquirer.prompt({
+//   type: "input",
+//   name: "username",
+//   message: "What is your username?",
+//   choices: ["Ja", "Nein"],
+// });
+
+// console.log(response.username === "dima" ? "ja" : "nein"); // { username: 'jonschlinkert' }
+
 console.clear();
-const showTitel = () => {
+const showTitel = (param) => {
   figlet.text(
     " W e r  w i r d  M i l l i o n ä r ?",
     {
