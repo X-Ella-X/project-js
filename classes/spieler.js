@@ -16,6 +16,5 @@ class Spieler {
     return this.#gewonneneSumme;
   }
 }
-// const spieler = new Spieler({ name: "dima", mama: "irina", tel: 12345 });
-// console.log(spieler);
+
 export default Spieler;

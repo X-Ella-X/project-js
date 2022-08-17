@@ -5,19 +5,7 @@ import inquirer from "inquirer";
 import Spieler from "./classes/spieler.js";
 import Jocker from "./classes/jocker.js";
 import fragenDB from "./data/fragenDB.js";
-// inquirer.registerPrompt("emoji", require("inquirer-emoji"));
 
-// inquirer.prompt([
-//   {
-//     type: "emoji",
-//     name: "spirit_animal",
-//     message: "Find your spirit animal emoji:",
-//   },
-// ]);
-
-// let duck = gradient("orange", "yellow").multiline(
-//   ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
-// );
 console.clear();
 const showTitel = () => {
   figlet.text(
