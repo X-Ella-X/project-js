@@ -1,9 +1,9 @@
 const fragenDB = {
   100: [
     {
-      frage: "bnc",
-      anworten: [1, 2, 3, 4],
-      richtigeAntwort: "",
+      frage: "wie heiße ich",
+      anworten: ["Pechea", "Jora", "Dima", "Vadim"],
+      richtigeAntwort: "Dima",
       warSchon: false,
       checkAntwort,
     },
@@ -23,6 +23,15 @@ const fragenDB = {
     },
   ],
   200: [
+    {
+      frage: "",
+      anworten: ["bla", 2, 3, 4],
+      richtigeAntwort: "bla",
+      warSchon: false,
+      checkAntwort,
+    },
+  ],
+  300: [
     {
       frage: "",
       anworten: ["bla", 2, 3, 4],
