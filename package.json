@@ -12,10 +12,16 @@
     "url": "git+https://github.com/ldg77/millionaire.git"
   },
   "keywords": [],
-  "author": "Anna&&Dima",
+  "author": "Anna&&Dima&&Mohamad",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ldg77/millionaire/issues"
   },
-  "homepage": "https://github.com/ldg77/millionaire#readme"
+  "homepage": "https://github.com/ldg77/millionaire#readme",
+  "dependencies": {
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.1",
+    "inquirer": "^9.1.0",
+    "inquirer-table-prompt": "^0.2.1"
+  }
 }
