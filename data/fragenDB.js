@@ -41,9 +41,6 @@ function getRandomItem(arg) {
   return element;
 }
 
-// console.log(fragenDB.getRandomItem(100));
-// console.log(fragenDB[100]);
-
 /* Function die prüft ob die Antwort Richtig ist */
 function checkAntwort(arg) {
   return this.richtigeAntwort === arg;
