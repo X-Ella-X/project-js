@@ -1,6 +1,8 @@
-# millionaire made by AnnaK && DimaG
+# millionaire made by AnnaK && DimaG && MohamadM
 
 ## Struktur der data festlegen
+
+### Klasse für Fragen erstellen...
 
 ## logik
 
