@@ -1,3 +1,3 @@
-import fragen from "./data/fragen.js";
+import fragenDB from "./data/fragenDB.js";
 
-console.log(fragen);
+console.log(fragenDB);

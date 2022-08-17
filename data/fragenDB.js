@@ -1,4 +1,4 @@
-const fragen = {
+const fragenDB = {
   100: [
     {
       frage: "",
@@ -9,4 +9,4 @@ const fragen = {
   ],
 };
 
-export default fragen;
+export default fragenDB;
