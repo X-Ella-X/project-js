@@ -689,6 +689,7 @@ const fragenDB = {
 function getRandomItem(arg) {
   const element = this[arg][Math.floor(Math.random() * this[arg].length)];
   element.warSchon = true;
+  element.price = arg;
   return element;
 }
 
@@ -697,9 +698,7 @@ function getRandomItem(arg) {
 
 /* Function die prüft ob die Antwort Richtig ist */
 function checkAntwort(arg) {
-  return this.richtigeAntwort === arg;
+  return this.richtigeAntwort === this.antworten[arg];
 }
-
-function erstelleJocker() {}
 
 export default fragenDB;
