@@ -1,18 +1,16 @@
 import chalk from "chalk";
 
 class Jocker {
-  constructor({ name, mama, tel }) {
+  constructor({ name }) {
     this.name = name;
-    this.mama = mama;
-    this.tel = tel;
     this.jockerListe = {
       fiftyFifty: true,
       gruppe: true,
-      mama: true,
+      google: true,
     };
     this.frage = {};
   }
-  rufMamaAn() {
+  fragGoogle() {
     return ``;
   }
   showJockerListe() {
@@ -24,9 +22,9 @@ class Jocker {
           : chalk.red("Frag die Gruppe")
       }
       ${
-        this.jockerListe.mama
-          ? chalk.green("Ruf Mama an")
-          : chalk.red("Ruf Mama an")
+        this.jockerListe.google
+          ? chalk.green("Frag Google")
+          : chalk.red("Frag Google")
       }
 
     `;

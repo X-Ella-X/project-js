@@ -3,11 +3,12 @@ import figlet from "figlet";
 
 import Spieler from "./classes/spieler.js";
 import Jocker from "./classes/jocker.js";
+import questionGenerator from "./src/questionGenerator.js";
+import getUser from "./src/getUser.js";
+import radar from "./src/radar.js";
 import fragenDB from "./data/fragenDB.js";
 
-import enquirer from "enquirer";
-
-const showTitel = (param) => {
+const showTitel = (param1, param2) => {
   figlet.text(
     " W e r  w i r d  M i l l i o n ä r ?",
     {
@@ -26,35 +27,27 @@ const showTitel = (param) => {
       /* wird  " W e r  w i r d  M i l l i o n ä r ?" angezeigt */
       console.clear();
       console.log(gradient.cristal(data));
-      param().then((x) => {
-        const spieler = new Spieler(x);
-        const jocker = new Jocker(x);
-        console.clear();
-        jocker.frage = fragenDB.getRandomItem(spieler.listQuestion.shift());
-        console.log(jocker);
-        console.log(spieler);
-      });
+      if (param2 instanceof Jocker) {
+        param2.frage = fragenDB.getRandomItem(param1.listQuestion.shift());
+        setTimeout(() => questionGenerator(param1, param2), 200);
+      } else {
+        param1().then((x) => {
+          const spieler = new Spieler(x);
+          const jocker = new Jocker(x);
+          // jocker.frage = fragenDB.getRandomItem(spieler.listQuestion.shift());
+          console.clear();
+          setTimeout(() => showTitel(spieler, jocker), 200);
+        });
+      }
     }
   );
 };
-const getUser = () => {
-  const prompt = enquirer.form({
-    name: "player",
-    message: "Ich brauche zuerst einige Informationen von dir:",
-    choices: [
-      { name: "name", message: "Dein Namen", initial: "Chuck" },
-      { name: "mama", message: "Mama's Name", initial: "Norris" },
-      {
-        name: "tel",
-        message: "Tel.Nr. deiner Mutter",
-        initial: "0123456789",
-      },
-    ],
-  });
-
-  return prompt;
-};
-const showRandomQuestion = (arg) => {};
 
 // Aufrufen vom titel mit InfoAbfrage
-showTitel(getUser);
+
+radar("Loading");
+
+setTimeout(() => showTitel(getUser), 2000);
+
+// showLosGehts....
+export default showTitel;

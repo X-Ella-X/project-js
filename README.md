@@ -47,3 +47,13 @@ Fragen eintragen => Anna
 7. Wenn falsch (1000 oder 30000 erreich) ? Glückwunsche : 'deine Mama hat 9€-Ticket gewonnen '
 8. Wenn richtig ? 'Willst du das Geld': geh weiter
 9. We´nn alles richtig > Glückwunsh (Animation)
+
+181822-14:45
+
+- Jocker (ales)
+
+  - 50/50 (ramdom + richtig)
+  - Klasse und google fast gleich
+
+- Timer zwischen Fragen
+- bei 3000000 Gewinn Glückwunsch!
