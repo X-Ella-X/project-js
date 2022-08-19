@@ -20,8 +20,6 @@
   "homepage": "https://github.com/ldg77/millionaire#readme",
   "dependencies": {
     "chalk-animation": "^2.0.2",
-    "console-grid": "^2.0.0",
-    "console-png": "^1.2.1",
     "enquirer": "^2.3.6",
     "figlet": "^1.5.2",
     "gradient-string": "^2.0.1",

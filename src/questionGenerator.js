@@ -1,5 +1,6 @@
 import enquirer from "enquirer";
 import showTitel from "../index.js";
+import nextQuestion from "./nextQuestion.js";
 
 const getQuestion = (frage, name) => {
   const data = enquirer.scale({
@@ -41,7 +42,14 @@ const questionGenerator = (spieler, jocker) => {
         );
         console.log(`Viel Erfolg und bis zum nächsten Mal ${name}`);
       } else {
-        showTitel(spieler, jocker);
+        // if (nextQuestion(name, frage.price)) {
+        nextQuestion(spieler, jocker);
+        // showTitel(spieler, jocker);
+        // } else {
+        //   spieler.darfSpielen = false;
+        //   console.log(`Du hast ${frage.price} € gewonnen!`);
+        //   console.log(`Viel Erfolg und bis zum nächsten Mal ${name}`);
+        // }
       }
     });
 };
