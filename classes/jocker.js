@@ -10,6 +10,18 @@ class Jocker {
     };
     this.frage = {};
   }
+
+  generateJockerAuswahl() {
+    const result = [];
+    let counter = 0;
+    for (const key in this.jockerListe) {
+      counter++;
+      if (this.jockerListe[key]) {
+        result.push({ name: `${counter}`, message: key });
+      }
+    }
+    return result;
+  }
   fragGoogle() {
     return ``;
   }

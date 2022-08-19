@@ -690,12 +690,17 @@ function getRandomItem(arg) {
   const element = this[arg][Math.floor(Math.random() * this[arg].length)];
   element.warSchon = true;
   element.price = arg;
+  element.fiftyFifty = fiftyFifty(element.richtigeAntwort, element.antworten);
   return element;
 }
 
-// console.log(fragenDB.getRandomItem(100));
-// console.log(fragenDB[100]);
-
+function fiftyFifty(richtigeAntwort, antworten) {
+  // console.log(richtigeAntwort);
+  const result = [{ name: "a", message: richtigeAntwort }];
+  const filtered = antworten.filter((x) => x !== richtigeAntwort);
+  result.push({ name: "b", message: filtered.shift() });
+  return result;
+}
 /* Function die prüft ob die Antwort Richtig ist */
 function checkAntwort(arg) {
   return this.richtigeAntwort === this.antworten[arg];

@@ -34,7 +34,6 @@ const showTitel = (param1, param2) => {
         param1().then((x) => {
           const spieler = new Spieler(x);
           const jocker = new Jocker(x);
-          // jocker.frage = fragenDB.getRandomItem(spieler.listQuestion.shift());
           console.clear();
           setTimeout(() => showTitel(spieler, jocker), 200);
         });
@@ -45,7 +44,7 @@ const showTitel = (param1, param2) => {
 
 // Aufrufen vom titel mit InfoAbfrage
 
-radar("Loading");
+radar("Loading Anna&Dima&Mohamad Spiel");
 
 setTimeout(() => showTitel(getUser), 2000);
 
