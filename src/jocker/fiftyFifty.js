@@ -1,5 +1,5 @@
 import enquirer from "enquirer";
-import showTitel from "../../index.js";
+import nextQuestion from "../nextQuestion.js";
 const fiftyFifty = (spieler, jocker) => {
   //   console.log(jocker.frage.fiftyFifty);
   const data = enquirer.scale({
@@ -23,7 +23,7 @@ const fiftyFifty = (spieler, jocker) => {
   data.then((x) => {
     jocker.jockerListe.fiftyFifty = false;
     if (x.answer === 0) {
-      showTitel(spieler, jocker);
+      nextQuestion(spieler, jocker);
     } else {
       console.log("Leider Falsch!!!");
     }
