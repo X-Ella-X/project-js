@@ -50,7 +50,7 @@ Fragen eintragen => Anna
 
 181822-14:45
 
-- Fragen ob man weiterspielen will
+- Fragen ob man weiterspielen will X
 - Jocker (ales)
 
   - 50/50 (ramdom + richtig)

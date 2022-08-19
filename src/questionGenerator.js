@@ -1,6 +1,7 @@
 import enquirer from "enquirer";
 import showTitel from "../index.js";
 import nextQuestion from "./nextQuestion.js";
+import jockerAuswahl from "./jocker/jockerAuswahl.js";
 
 const getQuestion = (frage, name) => {
   const data = enquirer.scale({
@@ -27,31 +28,23 @@ const getQuestion = (frage, name) => {
 };
 
 const questionGenerator = (spieler, jocker) => {
-  console.log(spieler, jocker);
+  // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
-  getQuestion(frage, name)
-    .then((x) => frage.checkAntwort(x.answer))
-    .then((x) => {
-      if (!x) {
-        spieler.darfSpielen = false;
-        console.log(
-          `Du hast ${
-            frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
-          } € gewonnen!`
-        );
-        console.log(`Viel Erfolg und bis zum nächsten Mal ${name}`);
-      } else {
-        // if (nextQuestion(name, frage.price)) {
-        nextQuestion(spieler, jocker);
-        // showTitel(spieler, jocker);
-        // } else {
-        //   spieler.darfSpielen = false;
-        //   console.log(`Du hast ${frage.price} € gewonnen!`);
-        //   console.log(`Viel Erfolg und bis zum nächsten Mal ${name}`);
-        // }
-      }
-    });
+  getQuestion(frage, name).then((x) => {
+    if (frage.checkAntwort(x.answer)) {
+      nextQuestion(spieler, jocker);
+    } else if (x.answer === 4) {
+      jockerAuswahl(spieler, jocker);
+    } else {
+      spieler.darfSpielen = false;
+      console.log(
+        `Du hast ${
+          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+        } € gewonnen!`
+      );
+    }
+  });
 };
 
 export default questionGenerator;
