@@ -23,7 +23,11 @@ const fiftyFifty = (spieler, jocker) => {
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${
-          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+          jocker.frage.price >= 30000
+            ? 30000
+            : jocker.frage.price >= 1000
+            ? 1000
+            : 0
         } € gewonnen!`
       );
     }
