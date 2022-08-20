@@ -2,8 +2,9 @@ import enquirer from "enquirer";
 import nextQuestion from "./nextQuestion.js";
 import jockerAuswahl from "./jocker/jockerAuswahl.js";
 import { createSpinner } from "nanospinner";
+import sounds from "./sounds.js";
 
-const getQuestion = (frage, name, jockerListe, timer) => {
+const getQuestion = (frage, name, jockerListe) => {
   const scaleListe =
     jockerListe.fiftyFifty || jockerListe.gruppe || jockerListe.google
       ? [
@@ -43,7 +44,7 @@ const questionGenerator = (spieler, jocker) => {
   let { jockerListe, frage } = jocker;
   const zeit = parseInt(frage.price / 1000);
   const frameList = [];
-  for (let i = 10 + zeit; i >= 0; i--) {
+  for (let i = 20 + zeit; i >= 0; i--) {
     frameList.push("" + i);
   }
 
@@ -58,11 +59,13 @@ const questionGenerator = (spieler, jocker) => {
 
   const time = setTimeout(() => {
     spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
-  }, zeit * 1000 + 10000);
+  }, zeit * 1000 + 20000);
   const stopMyTimeOut = () => clearTimeout(time);
+  sounds().play("./data/audio/suspense.mp3");
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
       spinner.stop({ text: "Sehr gut", mark: ":)", color: "green" });
+      sounds().play("./data/audio/correct.mp3");
       stopMyTimeOut();
       nextQuestion(spieler, jocker);
     } else if (x.answer === 4) {
@@ -77,6 +80,7 @@ const questionGenerator = (spieler, jocker) => {
       jockerAuswahl(spieler, jocker);
       spinner.stop();
     } else {
+      sounds().play("./data/audio/wrong.mp3");
       spinner.stop({
         text: `Richtige Antwort wäre ${frage.richtigeAntwort}`,
         mark: "Leider Falsch...",
