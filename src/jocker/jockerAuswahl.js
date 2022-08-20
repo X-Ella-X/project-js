@@ -19,7 +19,7 @@ const jockerAuswahl = (spieler, jocker) => {
       },
     ],
   });
-  sounds().play("./data/audio/suspense.mp3");
+  // sounds().play("./data/audio/suspense.mp3");
   data
     .then((x) => jocker.generateJockerAuswahl()[x.answer])
     .then(({ message }) => {

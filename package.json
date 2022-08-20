@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startIntro": "afplay ./data/audio/intro.mp3",
     "startApp": "node index.js",
     "start": "npm-run-all --parallel startApp startIntro"
   },

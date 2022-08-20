@@ -16,15 +16,15 @@ const fiftyFifty = (spieler, jocker) => {
       },
     ],
   });
-  sounds().play("./data/audio/suspense.mp3");
+  // sounds().play("./data/audio/suspense.mp3");
 
   data.then((x) => {
     jocker.jockerListe.fiftyFifty = false;
     if (x.answer === 0) {
-      sounds().play("./data/audio/correct.mp3");
+      // sounds().play("./data/audio/correct.mp3");
       nextQuestion(spieler, jocker);
     } else {
-      sounds().play("./data/audio/wrong.mp3");
+      // sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${

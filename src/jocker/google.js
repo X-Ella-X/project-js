@@ -40,16 +40,16 @@ const google = (spieler, jocker) => {
       },
     ],
   });
-  sounds().play("./data/audio/suspense.mp3");
+  // sounds().play("./data/audio/suspense.mp3");
   data.then((x) => {
     stopMyTimeOut();
     spinner.stop();
     if (jocker.frage.checkAntwort(x.answer)) {
-      sounds().play("./data/audio/correct.mp3");
+      // sounds().play("./data/audio/correct.mp3");
       jocker.jockerListe.google = false;
       nextQuestion(spieler, jocker);
     } else {
-      sounds().play("./data/audio/wrong.mp3");
+      // sounds().play("./data/audio/wrong.mp3");
 
       spieler.darfSpielen = false;
       console.log(

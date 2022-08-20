@@ -61,11 +61,11 @@ const questionGenerator = (spieler, jocker) => {
     spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
   }, zeit * 1000 + 20000);
   const stopMyTimeOut = () => clearTimeout(time);
-  sounds().play("./data/audio/suspense.mp3");
+  // sounds().play("./data/audio/suspense.mp3");
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
       spinner.stop({ text: "Sehr gut", mark: ":)", color: "green" });
-      sounds().play("./data/audio/correct.mp3");
+      // sounds().play("./data/audio/correct.mp3");
       stopMyTimeOut();
       nextQuestion(spieler, jocker);
     } else if (x.answer === 4) {
@@ -80,7 +80,7 @@ const questionGenerator = (spieler, jocker) => {
       jockerAuswahl(spieler, jocker);
       spinner.stop();
     } else {
-      sounds().play("./data/audio/wrong.mp3");
+      // sounds().play("./data/audio/wrong.mp3");
       spinner.stop({
         text: `Richtige Antwort wäre ${frage.richtigeAntwort}`,
         mark: "Leider Falsch...",
