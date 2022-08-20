@@ -40,8 +40,8 @@ const google = (spieler, jocker) => {
   });
 
   data.then((x) => {
-    spinner.stop();
     stopMyTimeOut();
+    spinner.stop();
     if (jocker.frage.checkAntwort(x.answer)) {
       jocker.jockerListe.google = false;
       nextQuestion(spieler, jocker);

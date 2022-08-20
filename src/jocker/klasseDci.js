@@ -41,11 +41,10 @@ const klasseDci = (spieler, jocker) => {
   });
 
   data.then((x) => {
-    spinner.stop();
     stopMyTimeOut();
+    spinner.stop();
     if (jocker.frage.checkAntwort(x.answer)) {
       jocker.jockerListe.gruppe = false;
-      spinner.success();
       nextQuestion(spieler, jocker);
     } else {
       spieler.darfSpielen = false;
