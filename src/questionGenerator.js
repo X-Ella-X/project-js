@@ -26,7 +26,7 @@ const getQuestion = (frage, name) => {
 };
 
 const questionGenerator = (spieler, jocker) => {
-  console.log(spieler, jocker);
+  // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
   getQuestion(frage, name)
