@@ -1,8 +1,15 @@
-# MILLIONAERE made by AnnaK && DimaG && MohamadM
+# MILLIONAERE made by `AnnaK` && `DimaG` && `MohamadM`
 
 ## Komme und teste dein wissen
 
 ### Dich erwarten interessante Fragen die stuffenweise schwieriger werden
+
+### Instalation
+
+`npm install`  
+`npm run start`
+
+## Antworte auf Fragen und sei Reich!
 
 ### Zur Hilfe stehen Dir follgende Joker
 
@@ -18,13 +25,22 @@
 - Man hat 3 Joker zur Auswahl
 - Beantwortet man alle Fragen wird man zu millionaire!
 
-181822-14:45
+### Dependencies
 
-- Fragen ob man weiterspielen will X
-- Jocker (ales)
+- "chalk-animation"
+  - Animation des Textes
+- "enquirer"
+  - Fragenlogik
+- "figlet"
+  - Willkommenstext
+- "gradient-string"
+  - Farbferläufe
+- "nanospinner"
 
-  - 50/50 (ramdom + richtig) X
-  - Klasse und google fast gleich X
+  - Alle Teimer
 
-- Timer zwischen Fragen X
-- bei 3000000 Gewinn Glückwunsch! X
+- "sound-play"
+
+  - Sounds
+
+# Viel Spass und sei reich!!!
