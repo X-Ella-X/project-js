@@ -1,9 +1,9 @@
 import enquirer from "enquirer";
 import nextQuestion from "./nextQuestion.js";
 import jockerAuswahl from "./jocker/jockerAuswahl.js";
-import timer from "./timer.js";
+import { createSpinner } from "nanospinner";
 
-const getQuestion = (frage, name, jockerListe) => {
+const getQuestion = (frage, name, jockerListe, timer) => {
   const scaleListe =
     jockerListe.fiftyFifty || jockerListe.gruppe || jockerListe.google
       ? [
@@ -33,7 +33,7 @@ const getQuestion = (frage, name, jockerListe) => {
       },
     ],
   });
-  timer(20);
+
   return data;
 };
 
@@ -41,12 +41,41 @@ const questionGenerator = (spieler, jocker) => {
   // console.log(spieler, jocker);
   let { name } = spieler;
   let { jockerListe, frage } = jocker;
+
+  const frameList = [];
+  for (let i = 11; i >= 0; i--) {
+    frameList.push("" + i);
+  }
+
+  const spinner = createSpinner().start();
+  spinner.update({
+    text: "Secunden Zeit für die Frage",
+    color: "white",
+    stream: process.stdout,
+    frames: frameList,
+    interval: 1000,
+  });
+
+  const time = setTimeout(() => {
+    spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
+  }, 10000);
+  const stopMyTimeOut = () => clearTimeout(time);
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
+      spinner.stop({ text: "Sehr gut", mark: ":)", color: "green" });
+      stopMyTimeOut();
       nextQuestion(spieler, jocker);
     } else if (x.answer === 4) {
+      spinner.stop({ text: "", mark: "Wähle ein Joker...", color: "green" });
+      stopMyTimeOut();
       jockerAuswahl(spieler, jocker);
     } else {
+      spinner.stop({
+        text: `Richtige antwort wäre ${frage.richtigeAntwort}`,
+        mark: "Leider Falsch...",
+        color: "red",
+      });
+      stopMyTimeOut();
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${

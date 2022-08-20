@@ -15,9 +15,10 @@ const google = (spieler, jocker) => {
     interval: 1000,
   });
 
-  setTimeout(() => {
-    spinner.success();
+  const time = setTimeout(() => {
+    spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
   }, 59000);
+  const stopMyTimeOut = () => clearTimeout(time);
 
   const data = enquirer.scale({
     name: "experience",
@@ -39,15 +40,20 @@ const google = (spieler, jocker) => {
   });
 
   data.then((x) => {
+    spinner.stop();
+    stopMyTimeOut();
     if (jocker.frage.checkAntwort(x.answer)) {
-      jocker.jockerListe.gruppe = false;
-      spinner.success();
+      jocker.jockerListe.google = false;
       nextQuestion(spieler, jocker);
     } else {
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${
-          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+          jocker.frage.price >= 30000
+            ? 30000
+            : jocker.frage.price >= 1000
+            ? 1000
+            : 0
         } € gewonnen!`
       );
     }

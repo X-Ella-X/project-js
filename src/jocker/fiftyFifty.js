@@ -6,11 +6,6 @@ const fiftyFifty = (spieler, jocker) => {
     name: "experience",
     message: `${spieler.name}, Die 2 Antworten sind `,
     scale: jocker.frage.fiftyFifty,
-    /* [ */
-    //   { name: "a", message: "50/50" },
-    //   { name: "b", message: "Klasse" },
-    //   { name: "c", message: "Google" },
-    // ],
     margin: [0, 0, 0, 0],
     choices: [
       {
@@ -25,7 +20,12 @@ const fiftyFifty = (spieler, jocker) => {
     if (x.answer === 0) {
       nextQuestion(spieler, jocker);
     } else {
-      console.log("Leider Falsch!!!");
+      spieler.darfSpielen = false;
+      console.log(
+        `Du hast ${
+          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+        } € gewonnen!`
+      );
     }
   });
 };
