@@ -38,7 +38,7 @@ const getQuestion = (frage, name, jockerListe, timer) => {
 };
 
 const questionGenerator = (spieler, jocker) => {
-  console.log(spieler, jocker);
+  // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
   const zeit = parseInt(frage.price / 1000);
