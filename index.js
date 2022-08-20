@@ -28,7 +28,9 @@ const showTitel = (param1, param2) => {
       console.clear();
       console.log(gradient.cristal(data));
       if (param2 instanceof Jocker) {
-        param2.frage = fragenDB.getRandomItem(param1.listQuestion.shift());
+        param2.frage = fragenDB.getRandomItem(
+          !undefined ? param1.listQuestion.shift() : congrats()
+        );
         setTimeout(() => questionGenerator(param1, param2), 200);
       } else {
         param1().then((x) => {

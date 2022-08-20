@@ -41,9 +41,9 @@ const questionGenerator = (spieler, jocker) => {
   // console.log(spieler, jocker);
   let { name } = spieler;
   let { jockerListe, frage } = jocker;
-
+  const zeit = parseInt(frage.price / 1000);
   const frameList = [];
-  for (let i = 11; i >= 0; i--) {
+  for (let i = 10 + zeit; i >= 0; i--) {
     frameList.push("" + i);
   }
 
@@ -58,7 +58,7 @@ const questionGenerator = (spieler, jocker) => {
 
   const time = setTimeout(() => {
     spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
-  }, 10000);
+  }, zeit * 1000 + 10000);
   const stopMyTimeOut = () => clearTimeout(time);
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
