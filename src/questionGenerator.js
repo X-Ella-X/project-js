@@ -1,7 +1,7 @@
 import enquirer from "enquirer";
-import showTitel from "../index.js";
 import nextQuestion from "./nextQuestion.js";
 import jockerAuswahl from "./jocker/jockerAuswahl.js";
+import timer from "./timer.js";
 
 const getQuestion = (frage, name, jockerListe) => {
   const scaleListe =
@@ -33,13 +33,13 @@ const getQuestion = (frage, name, jockerListe) => {
       },
     ],
   });
-
+  timer(20);
   return data;
 };
 
 const questionGenerator = (spieler, jocker) => {
   // console.log(spieler, jocker);
-  let { name, infoSpieler } = spieler;
+  let { name } = spieler;
   let { jockerListe, frage } = jocker;
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
