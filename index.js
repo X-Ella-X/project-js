@@ -46,9 +46,7 @@ const showTitel = (param1, param2) => {
 
 // Aufrufen vom titel mit InfoAbfrage
 
-radar(
-  "Loading Anna&Dima&Mohamad //Loading Anna&Dima&Mohamad //Loading Anna&Dima&Mohamad //"
-);
+radar("Loading Anna&Dima&Mohamad ...");
 setTimeout(() => showTitel(getUser), 2000);
 
 // showLosGehts....

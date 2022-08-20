@@ -52,6 +52,11 @@ const klasseDci = (spieler, jocker) => {
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;
+      spinner.stop({
+        text: `Richtige Antwort wäre ${jocker.frage.richtigeAntwort}`,
+        mark: "Leider Falsch...",
+        color: "red",
+      });
       console.log(
         `Du hast ${
           jocker.frage.price >= 30000

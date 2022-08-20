@@ -50,7 +50,11 @@ const google = (spieler, jocker) => {
       nextQuestion(spieler, jocker);
     } else {
       // sounds().play("./data/audio/wrong.mp3");
-
+      spinner.stop({
+        text: `Richtige Antwort wäre ${jocker.frage.richtigeAntwort}`,
+        mark: "Leider Falsch...",
+        color: "red",
+      });
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${
