@@ -66,12 +66,19 @@ const questionGenerator = (spieler, jocker) => {
       stopMyTimeOut();
       nextQuestion(spieler, jocker);
     } else if (x.answer === 4) {
-      spinner.stop({ text: "", mark: "Wähle ein Joker...", color: "green" });
+      spinner.update({
+        text: "Jetzt Kommt die Hilfe!!!",
+        color: "white",
+        stream: process.stdout,
+        frames: [".", "o", "0", "@", "*"],
+        interval: 100,
+      });
       stopMyTimeOut();
       jockerAuswahl(spieler, jocker);
+      spinner.stop();
     } else {
       spinner.stop({
-        text: `Richtige antwort wäre ${frage.richtigeAntwort}`,
+        text: `Richtige Antwort wäre ${frage.richtigeAntwort}`,
         mark: "Leider Falsch...",
         color: "red",
       });
