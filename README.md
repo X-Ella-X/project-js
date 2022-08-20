@@ -53,8 +53,8 @@ Fragen eintragen => Anna
 - Fragen ob man weiterspielen will X
 - Jocker (ales)
 
-  - 50/50 (ramdom + richtig)
-  - Klasse und google fast gleich
+  - 50/50 (ramdom + richtig) X
+  - Klasse und google fast gleich X
 
 - Timer zwischen Fragen
 - bei 3000000 Gewinn Glückwunsch!

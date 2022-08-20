@@ -9,11 +9,6 @@ const jockerAuswahl = (spieler, jocker) => {
       spieler.name
     }, wähle ein verfühgbaren Jocker ${jocker.showJockerListe()}`,
     scale: jocker.generateJockerAuswahl(),
-    /* [ */
-    //   { name: "a", message: "50/50" },
-    //   { name: "b", message: "Klasse" },
-    //   { name: "c", message: "Google" },
-    // ],
     margin: [0, 0, 0, 0],
     choices: [
       {
