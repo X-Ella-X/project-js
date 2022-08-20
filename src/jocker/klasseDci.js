@@ -1,7 +1,8 @@
 import { createSpinner } from "nanospinner";
 import enquirer from "enquirer";
-
 import nextQuestion from "../nextQuestion.js";
+import sounds from "../sounds.js";
+
 const klasseDci = (spieler, jocker) => {
   const arr = [];
   for (let i = 60; i > 0; i--) {
@@ -39,14 +40,17 @@ const klasseDci = (spieler, jocker) => {
       },
     ],
   });
-
+  sounds().play("./data/audio/suspense.mp3");
   data.then((x) => {
     stopMyTimeOut();
     spinner.stop();
     if (jocker.frage.checkAntwort(x.answer)) {
+      sounds().play("./data/audio/correct.mp3");
+
       jocker.jockerListe.gruppe = false;
       nextQuestion(spieler, jocker);
     } else {
+      sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${

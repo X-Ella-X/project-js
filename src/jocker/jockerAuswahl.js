@@ -2,6 +2,7 @@ import enquirer from "enquirer";
 import fiftyFifty from "./fiftyFifty.js";
 import klasseDci from "./klasseDci.js";
 import google from "./google.js";
+import sounds from "../sounds.js";
 const jockerAuswahl = (spieler, jocker) => {
   const data = enquirer.scale({
     name: "experience",
@@ -18,6 +19,7 @@ const jockerAuswahl = (spieler, jocker) => {
       },
     ],
   });
+  sounds().play("./data/audio/suspense.mp3");
   data
     .then((x) => jocker.generateJockerAuswahl()[x.answer])
     .then(({ message }) => {

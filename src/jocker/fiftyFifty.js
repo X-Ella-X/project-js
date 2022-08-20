@@ -1,7 +1,8 @@
 import enquirer from "enquirer";
 import nextQuestion from "../nextQuestion.js";
+import sounds from "../sounds.js";
+
 const fiftyFifty = (spieler, jocker) => {
-  //   console.log(jocker.frage.fiftyFifty);
   const data = enquirer.scale({
     name: "experience",
     message: `${spieler.name}, Die 2 Antworten sind `,
@@ -15,11 +16,15 @@ const fiftyFifty = (spieler, jocker) => {
       },
     ],
   });
+  sounds().play("./data/audio/suspense.mp3");
+
   data.then((x) => {
     jocker.jockerListe.fiftyFifty = false;
     if (x.answer === 0) {
+      sounds().play("./data/audio/correct.mp3");
       nextQuestion(spieler, jocker);
     } else {
+      sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${
