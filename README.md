@@ -1,14 +1,14 @@
-# millionaire made by AnnaK && DimaG && MohamadM
+# MILLIONAERE made by AnnaK && DimaG && MohamadM
 
-## Struktur der data festlegen
+## Komme und teste dein wissen
 
-### Klasse für Fragen erstellen...
+### Dich erwarten interessante Fragen die stuffenweise schwieriger werden
 
-## logik
+### Zur Hilfe stehen Dir follgende Joker
 
-- wenn frage richtig beantworted geh weiter oder holle das geld
-- wenn falsch dann raus oder 1000 || 30000
-- wenn alles richtig holle 3000000 und glückwunsch
+- 50/50
+- DCI-Gruppe Fragen (60sec. Zeit)
+- Google fragen (60sec. Zeit)
 
 ## ablauf
 
@@ -50,10 +50,11 @@ Fragen eintragen => Anna
 
 181822-14:45
 
+- Fragen ob man weiterspielen will X
 - Jocker (ales)
 
-  - 50/50 (ramdom + richtig)
-  - Klasse und google fast gleich
+  - 50/50 (ramdom + richtig) X
+  - Klasse und google fast gleich X
 
 - Timer zwischen Fragen
 - bei 3000000 Gewinn Glückwunsch!

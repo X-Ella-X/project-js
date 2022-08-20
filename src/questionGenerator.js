@@ -1,17 +1,29 @@
 import enquirer from "enquirer";
-import showTitel from "../index.js";
+import nextQuestion from "./nextQuestion.js";
+import jockerAuswahl from "./jocker/jockerAuswahl.js";
+import { createSpinner } from "nanospinner";
 
-const getQuestion = (frage, name) => {
+const getQuestion = (frage, name, jockerListe, timer) => {
+  const scaleListe =
+    jockerListe.fiftyFifty || jockerListe.gruppe || jockerListe.google
+      ? [
+          { name: "a", message: frage.antworten[0] },
+          { name: "b", message: frage.antworten[1] },
+          { name: "c", message: frage.antworten[2] },
+          { name: "d", message: frage.antworten[3] },
+          { name: "J", message: "Joker ziehen" },
+        ]
+      : [
+          { name: "a", message: frage.antworten[0] },
+          { name: "b", message: frage.antworten[1] },
+          { name: "c", message: frage.antworten[2] },
+          { name: "d", message: frage.antworten[3] },
+        ];
+
   const data = enquirer.scale({
     name: "experience",
     message: `${name}, bitte beantworte die ${frage.price}€ Frage!  `,
-    scale: [
-      { name: "a", message: frage.antworten[0] },
-      { name: "b", message: frage.antworten[1] },
-      { name: "c", message: frage.antworten[2] },
-      { name: "d", message: frage.antworten[3] },
-      { name: "J", message: "Joker ziehen" },
-    ],
+    scale: scaleListe,
     margin: [0, 0, 0, 0],
     choices: [
       {
@@ -26,24 +38,52 @@ const getQuestion = (frage, name) => {
 };
 
 const questionGenerator = (spieler, jocker) => {
-  // console.log(spieler, jocker);
+  console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
-  getQuestion(frage, name)
-    .then((x) => frage.checkAntwort(x.answer))
-    .then((x) => {
-      if (!x) {
-        spieler.darfSpielen = false;
-        console.log(
-          `Du hast ${
-            frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
-          } € gewonnen!`
-        );
-        console.log(`Viel Erfolg und bis zum nächsten Mal ${name}`);
-      } else {
-        showTitel(spieler, jocker);
-      }
-    });
+  const zeit = parseInt(frage.price / 1000);
+  const frameList = [];
+  for (let i = 10 + zeit; i >= 0; i--) {
+    frameList.push("" + i);
+  }
+
+  const spinner = createSpinner().start();
+  spinner.update({
+    text: "Secunden Zeit für die Frage",
+    color: "white",
+    stream: process.stdout,
+    frames: frameList,
+    interval: 1000,
+  });
+
+  const time = setTimeout(() => {
+    spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
+  }, zeit * 1000 + 10000);
+  const stopMyTimeOut = () => clearTimeout(time);
+  getQuestion(frage, name, jockerListe).then((x) => {
+    if (frage.checkAntwort(x.answer)) {
+      spinner.stop({ text: "Sehr gut", mark: ":)", color: "green" });
+      stopMyTimeOut();
+      nextQuestion(spieler, jocker);
+    } else if (x.answer === 4) {
+      spinner.stop({ text: "", mark: "Wähle ein Joker...", color: "green" });
+      stopMyTimeOut();
+      jockerAuswahl(spieler, jocker);
+    } else {
+      spinner.stop({
+        text: `Richtige antwort wäre ${frage.richtigeAntwort}`,
+        mark: "Leider Falsch...",
+        color: "red",
+      });
+      stopMyTimeOut();
+      spieler.darfSpielen = false;
+      console.log(
+        `Du hast ${
+          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+        } € gewonnen!`
+      );
+    }
+  });
 };
 
 export default questionGenerator;

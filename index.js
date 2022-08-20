@@ -28,13 +28,14 @@ const showTitel = (param1, param2) => {
       console.clear();
       console.log(gradient.cristal(data));
       if (param2 instanceof Jocker) {
-        param2.frage = fragenDB.getRandomItem(param1.listQuestion.shift());
+        param2.frage = fragenDB.getRandomItem(
+          !undefined ? param1.listQuestion.shift() : congrats()
+        );
         setTimeout(() => questionGenerator(param1, param2), 200);
       } else {
         param1().then((x) => {
           const spieler = new Spieler(x);
           const jocker = new Jocker(x);
-          // jocker.frage = fragenDB.getRandomItem(spieler.listQuestion.shift());
           console.clear();
           setTimeout(() => showTitel(spieler, jocker), 200);
         });
@@ -45,7 +46,7 @@ const showTitel = (param1, param2) => {
 
 // Aufrufen vom titel mit InfoAbfrage
 
-radar("Loading");
+radar("Loading Anna&Dima&Mohamad Spiel");
 
 setTimeout(() => showTitel(getUser), 2000);
 
