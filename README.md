@@ -42,6 +42,8 @@
 
 ### Dependencies
 
+- "chalk"
+  - Farben des Texts
 - "chalk-animation"
   - Animation des Textes
 - "enquirer"

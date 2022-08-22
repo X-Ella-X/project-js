@@ -102,7 +102,11 @@ const questionGenerator = (spieler, jocker) => {
       spieler.darfSpielen = false;
       console.log(
         `Du hast ${
-          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+          frage.price >= 30000
+            ? turquise("30000")
+            : frage.price >= 1000
+            ? turquise("1000")
+            : turquise("0")
         } € gewonnen!`
       );
     }
