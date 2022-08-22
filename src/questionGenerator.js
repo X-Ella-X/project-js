@@ -4,7 +4,6 @@ import jockerAuswahl from "./jocker/jockerAuswahl.js";
 import { createSpinner } from "nanospinner";
 import chalk from "chalk";
 import sounds from "./sounds.js";
-
 import congrats from "./congrats.js";
 
 const getQuestion = (frage, name, jockerListe) => {
@@ -45,7 +44,6 @@ const getQuestion = (frage, name, jockerListe) => {
 
 const questionGenerator = (spieler, jocker) => {
   const turquise = chalk.hex("00c2cb");
-  // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
   const zeit = parseInt(frage.price / 1000);

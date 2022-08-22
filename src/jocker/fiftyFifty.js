@@ -1,5 +1,4 @@
 import enquirer from "enquirer";
-import showTitel from "../../index.js";
 import nextQuestion from "../nextQuestion.js";
 import congrats from "../congrats.js";
 const fiftyFifty = (spieler, jocker) => {
@@ -17,12 +16,10 @@ const fiftyFifty = (spieler, jocker) => {
     ],
   });
   // sounds().play("./data/audio/suspense.mp3");
-
   data.then((x) => {
     jocker.jockerListe.fiftyFifty = false;
     if (x.answer === 0) {
       // sounds().play("./data/audio/correct.mp3");
-
       if (spieler.listQuestion.length === 0) {
         congrats(spieler);
       } else {
