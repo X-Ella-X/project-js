@@ -10,7 +10,7 @@ const klasseDci = (spieler, jocker) => {
   }
   const spinner = createSpinner().start();
   spinner.update({
-    text: `<= Secunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
+    text: `<= Sekunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
     color: "white",
     stream: process.stdout,
     frames: arr,

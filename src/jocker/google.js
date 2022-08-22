@@ -5,12 +5,12 @@ import sounds from "../sounds.js";
 
 const google = (spieler, jocker) => {
   const arr = [];
-  for (let i = 60; i > 0; i--) {
+  for (let i = 120; i > 0; i--) {
     arr.push("" + i);
   }
   const spinner = createSpinner().start();
   spinner.update({
-    text: `<= Secunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
+    text: `<= Sekunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
     color: "white",
     stream: process.stdout,
     frames: arr,
@@ -19,7 +19,7 @@ const google = (spieler, jocker) => {
 
   const time = setTimeout(() => {
     spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
-  }, 59000);
+  }, 119000);
   const stopMyTimeOut = () => clearTimeout(time);
 
   const data = enquirer.scale({

@@ -50,7 +50,7 @@ const questionGenerator = (spieler, jocker) => {
 
   const spinner = createSpinner().start();
   spinner.update({
-    text: "Secunden Zeit für die Frage",
+    text: "Sekunden Zeit für die Frage",
     color: "white",
     stream: process.stdout,
     frames: frameList,
@@ -70,7 +70,7 @@ const questionGenerator = (spieler, jocker) => {
       nextQuestion(spieler, jocker);
     } else if (x.answer === 4) {
       spinner.update({
-        text: "Jetzt Kommt die Hilfe!!!",
+        text: "Jetzt kommt die Hilfe!!!",
         color: "white",
         stream: process.stdout,
         frames: [".", "o", "0", "@", "*"],
