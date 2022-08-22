@@ -1,4 +1,4 @@
-# MILLIONAERE made by `AnnaK` && `DimaG` && `MohamadM`
+# MILLIONAERE made by [AnnaK](https://github.com/AnnaKaczmarek87) && [DimaG](https://github.com/ldg77) && [MohamadM](https://github.com/MohamadMerhie)
 
 ## Komme und teste dein wissen
 
