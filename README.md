@@ -25,6 +25,8 @@
 - Man hat 3 Joker zur Auswahl
 - Beantwortet man alle Fragen wird man zu millionaire!
 
+### Spielregel
+
 ### Dependencies
 
 - "chalk-animation"

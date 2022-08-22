@@ -1,5 +1,8 @@
+import chalkAnimation from "chalk-animation";
 const congrats = ({ name }) => {
-  return `Grlückwunsch ${name} du bist millionaere geworden!!! `;
+  return chalkAnimation.neon(
+    `Glückwunsch ${name} du bist MILLIONÄR geworden!!! `
+  );
 };
 
 export default congrats;
