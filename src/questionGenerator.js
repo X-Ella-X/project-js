@@ -45,6 +45,7 @@ const getQuestion = (frage, name, jockerListe) => {
 
 const questionGenerator = (spieler, jocker) => {
   const turquise = chalk.hex("00c2cb");
+  const red = chalk.hex("ff7777");
   // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
@@ -64,7 +65,7 @@ const questionGenerator = (spieler, jocker) => {
   });
 
   const time = setTimeout(() => {
-    spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
+    spinner.stop({ text: red("Zeit ist um"), mark: red(":(") });
   }, zeit * 1000 + 20000);
   const stopMyTimeOut = () => clearTimeout(time);
   // sounds().play("./data/audio/suspense.mp3");
@@ -72,8 +73,7 @@ const questionGenerator = (spieler, jocker) => {
     if (frage.checkAntwort(x.answer)) {
       spinner.stop({
         text: turquise("Sehr gut!"),
-        mark: ":)",
-        color: "green",
+        mark: turquise(":)"),
       });
       // sounds().play("./data/audio/correct.mp3");
       stopMyTimeOut();
@@ -96,16 +96,19 @@ const questionGenerator = (spieler, jocker) => {
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spinner.stop({
-        text: `Richtige Antwort wäre ${frage.richtigeAntwort}`,
-        mark: "Leider Falsch...",
-        color: "red",
+        text: `Richtige Antwort wäre ${chalk.underline(frage.richtigeAntwort)}`,
+        mark: red("Leider Falsch..."),
       });
       stopMyTimeOut();
       spieler.darfSpielen = false;
       console.log(
-        `Du hast ${
-          frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
-        } € gewonnen!`
+        chalk
+          .hex("03989e")
+          .bold(
+            `Du hast ${
+              frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
+            } € gewonnen!`
+          )
       );
     }
   });
