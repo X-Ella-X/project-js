@@ -2,7 +2,7 @@ import { createSpinner } from "nanospinner";
 import enquirer from "enquirer";
 import nextQuestion from "../nextQuestion.js";
 import sounds from "../sounds.js";
-
+import congrats from "../congrats.js";
 const google = (spieler, jocker) => {
   const arr = [];
   for (let i = 120; i > 0; i--) {
@@ -47,7 +47,11 @@ const google = (spieler, jocker) => {
     if (jocker.frage.checkAntwort(x.answer)) {
       // sounds().play("./data/audio/correct.mp3");
       jocker.jockerListe.google = false;
-      nextQuestion(spieler, jocker);
+      if (spieler.listQuestion.length === 0) {
+        congrats(spieler);
+      } else {
+        nextQuestion(spieler, jocker);
+      }
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spinner.stop({

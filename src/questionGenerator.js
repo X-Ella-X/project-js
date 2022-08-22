@@ -2,7 +2,10 @@ import enquirer from "enquirer";
 import nextQuestion from "./nextQuestion.js";
 import jockerAuswahl from "./jocker/jockerAuswahl.js";
 import { createSpinner } from "nanospinner";
+import chalk from "chalk";
 import sounds from "./sounds.js";
+
+import congrats from "./congrats.js";
 
 const getQuestion = (frage, name, jockerListe) => {
   const scaleListe =
@@ -23,7 +26,9 @@ const getQuestion = (frage, name, jockerListe) => {
 
   const data = enquirer.scale({
     name: "experience",
-    message: `${name}, bitte beantworte die ${frage.price}€ Frage!  `,
+    message: `${name}, bitte beantworte die ${chalk
+      .hex("00c2cb")
+      .bold(frage.price + "€")} Frage!  `,
     scale: scaleListe,
     margin: [0, 0, 0, 0],
     choices: [
@@ -39,6 +44,7 @@ const getQuestion = (frage, name, jockerListe) => {
 };
 
 const questionGenerator = (spieler, jocker) => {
+  const turquise = chalk.hex("00c2cb");
   // console.log(spieler, jocker);
   let { name, infoSpieler } = spieler;
   let { jockerListe, frage } = jocker;
@@ -64,10 +70,18 @@ const questionGenerator = (spieler, jocker) => {
   // sounds().play("./data/audio/suspense.mp3");
   getQuestion(frage, name, jockerListe).then((x) => {
     if (frage.checkAntwort(x.answer)) {
-      spinner.stop({ text: "Sehr gut", mark: ":)", color: "green" });
+      spinner.stop({
+        text: turquise("Sehr gut!"),
+        mark: ":)",
+        color: "green",
+      });
       // sounds().play("./data/audio/correct.mp3");
       stopMyTimeOut();
-      nextQuestion(spieler, jocker);
+      if (spieler.listQuestion.length === 0) {
+        congrats(spieler);
+      } else {
+        nextQuestion(spieler, jocker);
+      }
     } else if (x.answer === 4) {
       spinner.update({
         text: "Jetzt kommt die Hilfe!!!",

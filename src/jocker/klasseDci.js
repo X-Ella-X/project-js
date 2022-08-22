@@ -2,7 +2,7 @@ import { createSpinner } from "nanospinner";
 import enquirer from "enquirer";
 import nextQuestion from "../nextQuestion.js";
 import sounds from "../sounds.js";
-
+import congrats from "../congrats.js";
 const klasseDci = (spieler, jocker) => {
   const arr = [];
   for (let i = 60; i > 0; i--) {
@@ -48,7 +48,11 @@ const klasseDci = (spieler, jocker) => {
       // sounds().play("./data/audio/correct.mp3");
 
       jocker.jockerListe.gruppe = false;
-      nextQuestion(spieler, jocker);
+      if (spieler.listQuestion.length === 0) {
+        congrats(spieler);
+      } else {
+        nextQuestion(spieler, jocker);
+      }
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;

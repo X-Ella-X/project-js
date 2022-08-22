@@ -1,8 +1,7 @@
 import enquirer from "enquirer";
-
 import showTitel from "../../index.js";
 import nextQuestion from "../nextQuestion.js";
-
+import congrats from "../congrats.js";
 const fiftyFifty = (spieler, jocker) => {
   const data = enquirer.scale({
     name: "experience",
@@ -22,11 +21,13 @@ const fiftyFifty = (spieler, jocker) => {
   data.then((x) => {
     jocker.jockerListe.fiftyFifty = false;
     if (x.answer === 0) {
-
-
       // sounds().play("./data/audio/correct.mp3");
 
-      nextQuestion(spieler, jocker);
+      if (spieler.listQuestion.length === 0) {
+        congrats(spieler);
+      } else {
+        nextQuestion(spieler, jocker);
+      }
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spieler.darfSpielen = false;
