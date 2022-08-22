@@ -1,6 +1,8 @@
 import chalkAnimation from "chalk-animation";
+import sounds from "./sounds.js";
 const glichEffect = (arg) => {
-  chalkAnimation.glitch(arg + "...");
+  // sounds().play("data/audio/intro.mp3");
+  chalkAnimation.radar(arg + "...");
 };
 
 export default glichEffect;
