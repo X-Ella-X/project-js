@@ -15,6 +15,7 @@ const showTitel = (param1, param2) => {
       const spieler = new Spieler(x);
       const jocker = new Jocker(x);
       console.clear();
+
       showTitel(spieler, jocker);
     });
   }
