@@ -4,7 +4,6 @@ import questionGenerator from "./src/questionGenerator.js";
 import getUser from "./src/getUser.js";
 import radar from "./src/radar.js";
 import fragenDB from "./data/fragenDB.js";
-import congrats from "./src/congrats.js";
 import figletText from "./src/figletText.js";
 const showTitel = (param1, param2) => {
   figletText(" W e r  w i r d  M i l l i o n ä r ?");
@@ -23,7 +22,6 @@ const showTitel = (param1, param2) => {
 };
 
 // Aufrufen vom titel mit InfoAbfrage
-
 radar("L o a d i n g ...");
 setTimeout(() => showTitel(getUser), 2000);
 

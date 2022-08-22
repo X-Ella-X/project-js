@@ -8,7 +8,6 @@ const nextQuestion = (spieler, jocker) => {
     message: `${chalk.bold(spieler.name)}, willst du weiter spielen oder ${chalk
       .hex("00c2cb")
       .bold(jocker.frage.price + "€")} nehmen `,
-
     scale: [
       { name: "a", message: chalk.green("JA") },
       { name: "b", message: chalk.red("NEIN") },
