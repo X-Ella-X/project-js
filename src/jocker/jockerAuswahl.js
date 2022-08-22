@@ -8,14 +8,14 @@ const jockerAuswahl = (spieler, jocker) => {
     name: "experience",
     message: `${
       spieler.name
-    }, wähle ein verfühgbaren Jocker ${jocker.showJockerListe()}`,
+    }, wähle ein verfühgbaren Joker: ${jocker.showJockerListe()}`,
     scale: jocker.generateJockerAuswahl(),
     margin: [0, 0, 0, 0],
     choices: [
       {
         name: "answer",
-        message: "Wähle Jocker",
-        initial: 0,
+        message: "Wähle Joker",
+        initial: 1,
       },
     ],
   });

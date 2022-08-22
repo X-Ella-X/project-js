@@ -11,11 +11,24 @@
 
 ## Antworte auf Fragen und sei Reich!
 
+### Spielregeln:
+
+- Der Teilnehmer muss 15 verschiedene Fragen beantworten um 3 Millionen Euro zu gewinnen.
+- 20 Sekunden, um eine Frage zu beantworten, je schwieriger die Frage, desto mehr Zeit hat der Teilnehmer zum Antworten.
+- Nach jeder richtigen Antwort, kann sich der Teilnehmer entscheiden:
+  - WEITER zu spielen
+  - GELD zu nehmen und das Spiel zu beenden
+- Der Teilnehmer stehen 3 Joker zur Verfügung:
+  - fiftyFifty (blendet zwei falsche Antworten aus)
+  - Frag die Gruppe (Ist sich der Teilnehmer über die Beantwortung einer Frage nicht sicher, kann er das gesamte Klasse befragen.
+  - Frag Google (2 Minuten Zeit um die Frage zu googlen)
+- bei 1.000€ und 30.000€ gibt es die Sicherheitsstufen bzw. Der Betrag der Sicherheitsstufe bleibt dem Teilnehmern erhalten, auch wenn er bei einer späteren Frage falsch antwortet.
+
 ### Zur Hilfe stehen Dir follgende Joker
 
 - 50/50
 - DCI-Gruppe Fragen (60sec. Zeit)
-- Google fragen (60sec. Zeit)
+- Google fragen (120sec. Zeit)
 
 ### Ablauf
 
@@ -24,6 +37,8 @@
 - Für die ersten Fragen bekommt man 10 s. Zeit, je schwerer die Fragen desto mehr Zeit bekommst du.
 - Man hat 3 Joker zur Auswahl
 - Beantwortet man alle Fragen wird man zu millionaire!
+
+### Spielregel
 
 ### Dependencies
 

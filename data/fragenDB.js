@@ -112,14 +112,10 @@ const fragenDB = {
       checkAntwort,
     },
     {
-      frage: "An welchem Datum fiel die Berliner Mauer?",
-      antworten: [
-        "3. Oktober 1990",
-        "2. November 1990",
-        "9. November 1989",
-        "8. Oktober 1989",
-      ],
-      richtigeAntwort: "9. November 1989",
+      frage:
+        "Welches Vitamin wird mithilfe von Sonnenlicht im Körper gebildet?",
+      antworten: ["Vitamin C", "Vitamin E", "Vitamin D", "Vitamin A"],
+      richtigeAntwort: "Vitamin D",
       warSchon: false,
       checkAntwort,
     },
@@ -596,12 +592,12 @@ const fragenDB = {
       frage:
         "Wie viel Geld warfen Rom-Besucher im Jahr 2016 in den berühmten Trevi-Brunnen?",
       antworten: [
-        "1.4 Mio. Euro",
+        "1,4 Mio. Euro",
         "1,6 Mio. Euro",
-        "820.000 Euro",
+        "820,000 Euro",
         "500,000 Euro",
       ],
-      richtigeAntwort: "1.4 Mio. Euro",
+      richtigeAntwort: "1,4 Mio. Euro",
       warSchon: false,
       checkAntwort,
     },

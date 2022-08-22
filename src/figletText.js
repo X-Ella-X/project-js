@@ -19,7 +19,7 @@ const figletText = (arg) => {
       }
       /* wird  " W e r  w i r d  M i l l i o n ä r ?" angezeigt */
       console.clear();
-      console.log(gradient.cristal(data));
+      console.log(gradient.vice(data));
       getUser();
     }
   );

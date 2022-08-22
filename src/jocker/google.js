@@ -2,15 +2,15 @@ import { createSpinner } from "nanospinner";
 import enquirer from "enquirer";
 import nextQuestion from "../nextQuestion.js";
 import sounds from "../sounds.js";
-
+import congrats from "../congrats.js";
 const google = (spieler, jocker) => {
   const arr = [];
-  for (let i = 60; i > 0; i--) {
+  for (let i = 120; i > 0; i--) {
     arr.push("" + i);
   }
   const spinner = createSpinner().start();
   spinner.update({
-    text: `<= Secunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
+    text: `<= Sekunden übrig, hier nochmal die Frage: ${jocker.frage.frage}`,
     color: "white",
     stream: process.stdout,
     frames: arr,
@@ -19,7 +19,7 @@ const google = (spieler, jocker) => {
 
   const time = setTimeout(() => {
     spinner.stop({ text: "Zeit ist um", mark: ":(", color: "red" });
-  }, 59000);
+  }, 119000);
   const stopMyTimeOut = () => clearTimeout(time);
 
   const data = enquirer.scale({
@@ -47,7 +47,11 @@ const google = (spieler, jocker) => {
     if (jocker.frage.checkAntwort(x.answer)) {
       // sounds().play("./data/audio/correct.mp3");
       jocker.jockerListe.google = false;
-      nextQuestion(spieler, jocker);
+      if (spieler.listQuestion.length === 0) {
+        congrats(spieler);
+      } else {
+        nextQuestion(spieler, jocker);
+      }
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spinner.stop({

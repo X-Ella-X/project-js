@@ -9,9 +9,7 @@ import figletText from "./src/figletText.js";
 const showTitel = (param1, param2) => {
   figletText(" W e r  w i r d  M i l l i o n ä r ?");
   if (param2 instanceof Jocker) {
-    param2.frage = fragenDB.getRandomItem(
-      !undefined ? param1.listQuestion.shift() : console.log(congrats())
-    );
+    param2.frage = fragenDB.getRandomItem(param1.listQuestion.shift());
     questionGenerator(param1, param2);
   } else {
     param1().then((x) => {
@@ -26,8 +24,7 @@ const showTitel = (param1, param2) => {
 
 // Aufrufen vom titel mit InfoAbfrage
 
-radar("Loading Anna&Dima&Mohamad ...");
-
+radar("L o a d i n g ...");
 setTimeout(() => showTitel(getUser), 2000);
 
 // showLosGehts....
