@@ -64,7 +64,7 @@ const questionGenerator = (spieler, jocker) => {
   });
 
   const time = setTimeout(() => {
-    spinner.stop({ text: red("Zeit ist um"), mark: red(":(") });
+    spinner.stop({ text: red("Zeit ist um"), mark: red("⟶") });
   }, zeit * 1000 + 20000);
   const stopMyTimeOut = () => clearTimeout(time);
   // sounds().play("./data/audio/suspense.mp3");
@@ -72,7 +72,7 @@ const questionGenerator = (spieler, jocker) => {
     if (frage.checkAntwort(x.answer)) {
       spinner.stop({
         text: turquise("Sehr gut!"),
-        mark: turquise(":)"),
+        mark: turquise("🙂"),
       });
       // sounds().play("./data/audio/correct.mp3");
       stopMyTimeOut();
@@ -95,8 +95,10 @@ const questionGenerator = (spieler, jocker) => {
     } else {
       // sounds().play("./data/audio/wrong.mp3");
       spinner.stop({
-        text: `Richtige Antwort wäre ${chalk.underline(frage.richtigeAntwort)}`,
-        mark: red("Leider Falsch..."),
+        text: `Richtige Antwort wäre: ${chalk.underline(
+          frage.richtigeAntwort
+        )}`,
+        mark: red("Leider Falsch... 😢"),
       });
       stopMyTimeOut();
       spieler.darfSpielen = false;
@@ -106,7 +108,7 @@ const questionGenerator = (spieler, jocker) => {
           .bold(
             `Du hast ${
               frage.price >= 30000 ? 30000 : frage.price >= 1000 ? 1000 : 0
-            } € gewonnen!`
+            }€ gewonnen!`
           )
       );
     }
