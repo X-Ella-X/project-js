@@ -30,14 +30,6 @@
 - DCI-Gruppe Fragen (60sec. Zeit)
 - Google fragen (120sec. Zeit)
 
-### Ablauf
-
-- Name wird angefragt
-- Nach jeder richtigen Antwort kann man entscheiden ob man die gewonnene Summe mitnehmen möchte.
-- Für die ersten Fragen bekommt man 10 s. Zeit, je schwerer die Fragen desto mehr Zeit bekommst du.
-- Man hat 3 Joker zur Auswahl
-- Beantwortet man alle Fragen wird man zu millionaire!
-
 ### Dependencies
 
 - "chalk"
@@ -49,13 +41,13 @@
 - "figlet"
   - Willkommenstext
 - "gradient-string"
-  - Farbferläufe
+  - Farbverläufe
 - "nanospinner"
 
   - Alle Teimer
 
 - "sound-play"
 
-  - Sounds
+  - Sounds (leider nur unter MAC)
 
 # Viel Spass und sei reich!!!
