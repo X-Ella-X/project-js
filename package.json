@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startApp": "node index.js",
-    "start": "npm-run-all --parallel startApp startIntro"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
