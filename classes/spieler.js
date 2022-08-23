@@ -7,7 +7,7 @@ class Spieler {
     this.listQuestion = Object.keys(fragenDB).slice(0, -1);
   }
   info() {
-    return `${this.name}, ${this.mama},${this.tel}`;
+    return `${this.name}`;
   }
 }
 
